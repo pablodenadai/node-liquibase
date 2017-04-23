@@ -1,0 +1,37 @@
+{
+  "name": "liquibase",
+  "version": "0.0.0",
+  "description": "My stellar module",
+  "license": "MIT",
+  "repository": "pablodenadai/liquibase",
+  "author": {
+    "name": "Pablo De Nadai",
+    "email": "pablodenadai@gmail.com",
+    "url": "localhost"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && nyc ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "coveralls": "^2.11.12",
+    "nyc": "^10.0.0",
+    "xo": "^0.17.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
