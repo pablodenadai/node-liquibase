@@ -1,25 +1,28 @@
 {
   "name": "liquibase",
-  "version": "0.0.0",
-  "description": "My stellar module",
+  "version": "0.0.2",
+  "description": "Node.js wrap for Liquibase",
   "license": "MIT",
-  "repository": "pablodenadai/liquibase",
+  "repository": "pablodenadai/node-liquibase",
   "author": {
     "name": "Pablo De Nadai",
     "email": "pablodenadai@gmail.com",
-    "url": "localhost"
+    "url": "https://github.com/pablodenadai/node-liquibase"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "scripts": {
-    "test": "xo && nyc ava"
+    "test": "xo && nyc ava -s"
   },
   "files": [
     "index.js"
   ],
   "keywords": [
-    ""
+    "liquibase",
+    "sql",
+    "postgresql",
+    "migration"
   ],
   "dependencies": {},
   "devDependencies": {
