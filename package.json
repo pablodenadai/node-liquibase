@@ -1,6 +1,6 @@
 {
   "name": "liquibase",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js wrap for Liquibase",
   "license": "MIT",
   "repository": "pablodenadai/node-liquibase",
@@ -13,7 +13,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "xo && nyc ava -s"
+    "test": "xo && nyc ava --serial"
   },
   "files": [
     "index.js"
