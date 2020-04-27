@@ -1,5 +1,5 @@
 {
-  "name": "liquibase",
+  "name": "node-liquibase",
   "version": "1.0.0",
   "description": "Node.js wrap for Liquibase",
   "main": "index.js",
@@ -17,7 +17,10 @@
     "database",
     "automation",
     "source",
-    "control"
+    "control",
+    "sql",
+    "postgresql",
+    "migration"
   ],
   "author": "SteveZ",
   "license": "MIT",
