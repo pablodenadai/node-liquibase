@@ -1,40 +1,28 @@
 {
   "name": "liquibase",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Node.js wrap for Liquibase",
-  "license": "MIT",
-  "repository": "pablodenadai/node-liquibase",
-  "author": {
-    "name": "Pablo De Nadai",
-    "email": "pablodenadai@gmail.com",
-    "url": "https://github.com/pablodenadai/node-liquibase"
-  },
-  "engines": {
-    "node": ">=6"
-  },
+  "main": "index.js",
   "scripts": {
-    "test": "xo && nyc ava --serial"
+    "test": "node liquibase_mssql.js"
   },
-  "files": [
-    "index.js"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szandany/node-liquibase.git"
+  },
   "keywords": [
     "liquibase",
-    "sql",
-    "postgresql",
-    "migration"
+    "node",
+    "js",
+    "database",
+    "automation",
+    "source",
+    "control"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "ava": "^0.17.0",
-    "coveralls": "^2.11.12",
-    "nyc": "^10.0.0",
-    "xo": "^0.17.0"
+  "author": "SteveZ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szandany/node-liquibase/issues"
   },
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text"
-    ]
-  }
+  "homepage": "https://github.com/szandany/node-liquibase#readme"
 }
