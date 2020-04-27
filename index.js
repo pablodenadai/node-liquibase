@@ -8,7 +8,7 @@ class Liquibase {
 	 * @param {*} params default parameters for Liquibase
 	 * @example
 	 * ```javascript
-	 * const liquibase = require('liquibase');
+	 * const liquibase = require('node-liquibase');
 	 * 
 	 * const config = {
 	 *   contexts: 'TEST,DEV',

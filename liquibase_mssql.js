@@ -1,4 +1,4 @@
-const liquibase = require('liquibase');
+const liquibase = require('node-liquibase');
 
 
 /**
@@ -6,7 +6,7 @@ const liquibase = require('liquibase');
  ************ COMMANDS TEMPLATE ************
  *******************************************
  */
-//const <command name> = require('liquibase');
+//const <command name> = require('node-liquibase');
 
 // <command name> ({
 //   contexts: '<ontext1>,<context2>',
