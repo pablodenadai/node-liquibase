@@ -1,13 +1,12 @@
-const status = require('liquibase');
-const updateSQL = require('liquibase');
-const diff = require('liquibase');
-const update = require('liquibase');
-const snapshot = require('liquibase');
-const generateChangeLog = require('liquibase');
+const liquibase = require('node-liquibase');
 
 
-//*********** commands template ************
-//const <command name> = require('liquibase');
+/**
+ *******************************************
+ ************ COMMANDS TEMPLATE ************
+ *******************************************
+ */
+//const <command name> = require('node-liquibase');
 
 // <command name> ({
 //   contexts: '<ontext1>,<context2>',
@@ -18,46 +17,38 @@ const generateChangeLog = require('liquibase');
 // })
 // .run('<command name>', '<command parameter>')
 // .then(() => console.log('success'))
-// .catch((err) => console.log('fail', err));
+// .catch((err) => console.error('fail', err));
 
 
-
-//********** commands samples *************
-
-status ({
+/**
+ ******************************************
+ *********** COMMANDS SAMPLES *************
+ ******************************************
+ */
+const config = {
   contexts: 'TEST,DEV',
   labels: 'staging,Jira-1200',
   logLevel: 'debug',
   overwriteOutputFile: 'true',
   logFile: 'myLog.log'
-})
-.run('status', '--verbose')
-.then(() => console.log('success'))
-.catch((err) => console.log('fail', err));
+};
 
-// updateSQL ({
-//     contexts: 'TEST,DEV',
-//     labels: 'staging,Jira-1200',
-//     logLevel: 'debug',
-//     overwriteOutputFile: 'true',
-//     logFile: 'myLog.log'
-// })
-// .run('updateSQL')
-// .then(() => console.log('success'))
-// .catch((err) => console.log('fail', err));
+liquibase(config)
+  .run('status', '--verbose')
+  .then(() => console.log('success'))
+  .catch((err) => console.error('fail', err));
 
-// update ({
-//   contexts: 'TEST,DEV',
-//   labels: 'staging,Jira-1200',
-//   logLevel: 'debug',
-//   overwriteOutputFile: 'true',
-//   logFile: 'myLog.log'
-// })
-// .run('update')
-// .then(() => console.log('success'))
-// .catch((err) => console.log('fail', err));
+// liquibase(config)
+//   .run('updateSQL')
+//   .then(() => console.log('success'))
+//   .catch((err) => console.error('fail', err));
 
-// diff ({
+// liquibase(config)
+//   .run('update')
+//   .then(() => console.log('success'))
+//   .catch((err) => console.error('fail', err));
+
+// liquibase({
 //   referenceUrl: '"jdbc:sqlserver://localhost;database=HR_DEV;"',
 //   referenceUsername: 'system',
 //   referencePassword: 'password',
@@ -67,11 +58,11 @@ status ({
 //   overwriteOutputFile: 'true',
 //   logFile: 'myLog.log'
 // })
-// .run('diff')
-// .then(() => console.log('success'))
-// .catch((err) => console.log('fail', err));
+//   .run('diff')
+//   .then(() => console.log('success'))
+//   .catch((err) => console.error('fail', err));
 
-// snapshot ({
+// liquibase({
 //   url: '"jdbc:sqlserver://localhost;database=HR_TEST;"',
 //   classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar',
 //   username: 'system',
@@ -81,13 +72,13 @@ status ({
 //   logLevel: 'debug',
 //   logFile: 'myLog.log'
 // })
-// .run('snapshot')
-// .then(() => console.log('success'))
-// .catch((err) => console.log('fail', err));
+//   .run('snapshot')
+//   .then(() => console.log('success'))
+//   .catch((err) => console.error('fail', err));
 
-// generateChangeLog ({
+// liquibase({
 //   changeLogFile: 'changeLog_examples/mssql/changelog.mssql.sql',
-//   url: '"jdbc:sqlserver://localhost;database=HR_TEST;"'
+//   url: '"jdbc:sqlserver://localhost;database=HR_TEST;"',
 //   classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar',
 //   username: 'system',
 //   password: 'password',
@@ -95,6 +86,6 @@ status ({
 //   overwriteOutputFile: 'true',
 //   logFile: 'myLog.log'
 // })
-// .run('generateChangeLog')
-// .then(() => console.log('success'))
-// .catch((err) => console.log('fail', err));
+//   .run('generateChangeLog')
+//   .then(() => console.log('success'))
+//   .catch((err) => console.error('fail', err));
