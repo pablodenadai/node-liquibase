@@ -1,4 +1,4 @@
-const liquibase = require('node-liquibase');
+const liquibase = require('liquibase');
 
 
 //*********** commands template ************

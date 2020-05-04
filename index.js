@@ -26,22 +26,22 @@ class Liquibase {
 	 */
 	constructor(params = {}) {
 		const defaultParams = {
-			// MSSQL Default Parameters
+			//MSSQL Default Parameters
 			liquibase: 'liquibase-4.0.0/liquibase',
 			changeLogFile: 'changeLog_examples/mssql/changelog.mssql.sql',
 			url: '"jdbc:sqlserver://<IP OR HOSTNAME>:<port number>;database=<database name>;"',
 			username: '<username>',
 			password: '<password>',
-			liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
+			//liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
 			classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar'
 
-			// PostgreSQL Default Parameters Template
+			//PostgreSQL Default Parameters Template
 			// liquibase: 'liquibase-4.0.0/liquibase',
 			// changeLogFile: 'changeLog_examples/postgreSQL/changelog.postgresql.sql',
-			// url: 'jdbc:postgresql://<host>:5432/MYDATABASE_TEST',
+			// url: 'jdbc:postgresql://<IP OR HOSTNAME>:5432/MYDATABASE_TEST',
 			// username: 'postgres',
 			// password: 'password',
-			// liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
+			// //liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
 			// classpath: 'Drivers/postgresql-42.2.8.jar'
 		};
 		this.params = Object.assign({}, defaultParams, params);
