@@ -1,4 +1,4 @@
-> Node.js wrap for Liquibase
+> Node.js wrapper for Liquibase
 
 
 ## Install
@@ -35,7 +35,7 @@ classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar
 ```js
 .run('<action>', '<action-params>')
 .then(() => console.log('success'))
-.catch((err) => console.log('fail', err));
+.catch((err) => console.error('fail', err));
 ```
 run `node liquibase_mssql.js` or `node liquibase_postgresql.js` sample files
 

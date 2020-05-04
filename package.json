@@ -1,14 +1,14 @@
 {
   "name": "node-liquibase",
   "version": "1.0.0",
-  "description": "Node.js wrap for Liquibase",
+  "description": "Node.js wrapper for Liquibase",
   "main": "index.js",
   "scripts": {
-    "test": "node liquibase_mssql.js"
+    "test": "node examples/liquibase_mssql.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/szandany/node-liquibase.git"
+    "url": "git+https://github.com/liquibase/node-liquibase.git"
   },
   "keywords": [
     "liquibase",
@@ -22,10 +22,10 @@
     "postgresql",
     "migration"
   ],
-  "author": "SteveZ",
+  "author": "liquibase",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/szandany/node-liquibase/issues"
+    "url": "https://github.com/liquibase/node-liquibase/issues"
   },
-  "homepage": "https://github.com/szandany/node-liquibase#readme"
+  "homepage": "https://github.com/liquibase/node-liquibase#readme"
 }
