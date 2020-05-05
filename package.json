@@ -13,7 +13,7 @@
     "clean:lib": "rimraf ./lib/**",
     "start": "npm run build && npm run watch:lib",
     "watch:lib": "nodemon lib/index.js",
-    "test": "ava"
+    "test": "nyc --report-dire=coverage --reporter=lcov ava "
   },
   "engines": {
     "node": ">=6.9.0"
@@ -50,6 +50,7 @@
     "esm": "^3.2.25",
     "ncp": "^2.0.0",
     "nodemon": "^2.0.3",
+    "nyc": "^15.0.1",
     "rimraf": "^3.0.2"
   },
   "dependencies": {},
