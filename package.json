@@ -13,7 +13,7 @@
     "clean:lib": "rimraf ./lib/**",
     "start": "npm run build && npm run watch:lib",
     "watch:lib": "nodemon lib/index.js",
-    "test": "node examples/liquibase_mssql.js"
+    "test": "ava"
   },
   "engines": {
     "node": ">=6.9.0"
@@ -41,12 +41,24 @@
   },
   "homepage": "https://github.com/liquibase/node-liquibase#readme",
   "devDependencies": {
+    "@ava/babel": "^1.0.1",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "ava": "^3.8.1",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "ncp": "^2.0.0",
     "nodemon": "^2.0.3",
     "rimraf": "^3.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "ava": {
+    "nodeArguments": [
+      "--experimental-modules"
+    ],
+    "require": [
+      "esm"
+    ]
+  }
 }

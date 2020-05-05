@@ -39,3 +39,18 @@ classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar
 ```
 run `node liquibase_mssql.js` or `node liquibase_postgresql.js` sample files
 
+## Development
+## Build
+If you need to build local code changes, you may do so with:
+```bash
+npm run build
+```
+
+### Tests
+Run tests with:
+```shell
+npm run test
+```
+
+To substitute your own user/pass for a given environment, make a copy of `.env.example` in root directory as `.env` and update accordingly.
+

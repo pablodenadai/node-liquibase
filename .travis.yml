@@ -9,3 +9,5 @@ addons:
       - oracle-java8-set-default
 services:
   - postgresql
+script:
+  - npm run test

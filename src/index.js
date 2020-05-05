@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const childProcess = require('child_process');
+const path = require('path');
 
 
 class Liquibase {
@@ -27,13 +28,13 @@ class Liquibase {
 	constructor(params = {}) {
 		const defaultParams = {
 			//MSSQL Default Parameters
-			liquibase: 'liquibase-4.0.0/liquibase',
-			changeLogFile: 'change-log-examples/mssql/changelog.mssql.sql',
+			liquibase: path.join(__dirname, './liquibase-4.0.0/liquibase'),
+			changeLogFile: path.join(__dirname, './change-log-examples/mssql/changelog.mssql.sql'),
 			url: '"jdbc:sqlserver://<IP OR HOSTNAME>:<port number>;database=<database name>;"',
 			username: '<username>',
 			password: '<password>',
 			//liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
-			classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar'
+			classpath: path.join(__dirname, './Drivers/mssql-jdbc-7.4.1.jre8.jar')
 
 			//PostgreSQL Default Parameters Template
 			// liquibase: 'liquibase-4.0.0/liquibase',
@@ -48,11 +49,21 @@ class Liquibase {
 	}
 
 	/**
+	 * Executes a Liquibase command.
+	 * @param {*} action a string for the Liquibase command to run. Defaults to `'update'`
+	 * @param {*} params any parameters for the command
+	 * @returns {Promise} Promise of a node child process.
+	 */
+	run(action = 'update', params = '') {
+		return this._exec(`${this._command} ${action} ${params}`);
+	}
+
+	/**
 	 * Internal Getter that returns a node child process compatible command string.
 	 * @returns {string}
 	 * @private
 	 */
-	get command() {
+	get _command() {
 		let cmd = `${this.params.liquibase}`;
 		Object.keys(this.params).forEach(key => {
 			if (key === 'liquibase') {
@@ -72,13 +83,14 @@ class Liquibase {
 	 * @private
 	 * @returns {Promise} Promise of a node child process.
 	 */
-	exec(command, options = {}) {
+	_exec(command, options = {}) {
+		console.warn(command);
 		let child;
 		let promise = new Promise((resolve, reject) => {
 			child = childProcess
 				.exec(command, options, (error, stdout, stderr) => {
-					console.log(stdout);
-					console.error(stderr);
+					console.log('\n', stdout);
+					console.error('\n', stderr);
 					if (error) {
 						error.stderr = stderr;
 						return reject(error);
@@ -89,16 +101,6 @@ class Liquibase {
 		promise.child = child;
 		return promise;
 	}
-
-	/**
-	 * Executes a Liquibase command.
-	 * @param {*} action a string for the Liquibase command to run. Defaults to `'update'`
-	 * @param {*} params any parameters for the command
-	 * @returns {Promise} Promise of a node child process.
-	 */
-	run(action = 'update', params = '') {
-		return this.exec(`${this.command} ${action} ${params}`);
-	}
 }
 
-module.exports = params => new Liquibase(params);
+module.exports = (params) => new Liquibase(params);
