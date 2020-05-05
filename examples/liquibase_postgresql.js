@@ -1,4 +1,4 @@
-const liquibase = require('liquibase');
+const liquibase = require("node-liquibase");
 
 
 //*********** commands template ************
@@ -73,7 +73,7 @@ liquibase(config)
 //   .catch((err) => console.error('fail', err));
 
 // liquibase({
-//   changeLogFile: 'changeLog_examples/postgreSQL/my_new_changelog.postgresql.sql',
+//   changeLogFile: 'change-log-examples/postgreSQL/my_new_changelog.postgresql.sql',
 //   url: 'jdbc:postgresql://localhost:5432/MYDATABASE_TEST',
 //   classpath: 'Drivers/postgresql-42.2.8.jar',
 //   username: 'postgres',

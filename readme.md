@@ -13,7 +13,7 @@ From the index.js file adjust "<>" fields accordingly:
 ```js
 //******** MSSQL default parameters template *********
 liquibase: 'liquibase-4.0.0/liquibase',
-changeLogFile: 'changeLog_examples/mssql/changelog.mssql.sql',
+changeLogFile: 'change-log-examples/mssql/changelog.mssql.sql',
 url: '"jdbc:sqlserver://<IP OR HOSTNAME>:<port number>;database=<database name>;"',
 username: '<username>',
 password: '<password>',
@@ -24,7 +24,7 @@ classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar
 ```js
 //******** postgreSQL default parameters template *********
 // liquibase: 'liquibase-4.0.0/liquibase',
-// changeLogFile: 'changeLog_examples/postgreSQL/changelog.postgresql.sql',
+// changeLogFile: 'change-log-examples/postgreSQL/changelog.postgresql.sql',
 // url: 'jdbc:postgresql://<host>:5432/MYDATABASE_TEST',
 // username: 'postgres',
 // password: 'password',
