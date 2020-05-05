@@ -1,5 +1,5 @@
-const liquibase = require("node-liquibase");
-
+const liquibase = require("../lib/index");
+const path = require('path');
 
 //*********** commands template ************
 //const <command name> = require('node-liquibase');

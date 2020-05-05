@@ -1,5 +1,5 @@
-const liquibase = require("node-liquibase");
-
+const liquibase = require("../lib/index");
+const path = require('path');
 
 /**
  *******************************************
@@ -33,7 +33,7 @@ const config = {
   logFile: 'myLog.log'
 };
 
-liquibase(config)
+liquibase()
   .run('status', '--verbose')
   .then(() => console.log('success'))
   .catch((err) => console.error('fail', err));
