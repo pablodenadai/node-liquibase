@@ -1,12 +1,12 @@
 const liquibase = require("../lib/index");
-const path = require('path');
+// const path = require('path');  // Uncomment if needed
 
 /**
  *******************************************
  ************ COMMANDS TEMPLATE ************
  *******************************************
  */
-//const <command name> = require('node-liquibase');
+//const <command name> = require('../lib/index');
 
 // <command name> ({
 //   contexts: '<ontext1>,<context2>',
@@ -33,7 +33,7 @@ const config = {
   logFile: 'myLog.log'
 };
 
-liquibase()
+liquibase(config)
   .run('status', '--verbose')
   .then(() => console.log('success'))
   .catch((err) => console.error('fail', err));
