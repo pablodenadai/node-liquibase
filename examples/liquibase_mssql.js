@@ -1,4 +1,4 @@
-const liquibase = require('liquibase');
+const liquibase = require("node-liquibase");
 
 
 /**
@@ -77,7 +77,7 @@ liquibase(config)
 //   .catch((err) => console.error('fail', err));
 
 // liquibase({
-//   changeLogFile: 'changeLog_examples/mssql/changelog.mssql.sql',
+//   changeLogFile: 'change-log-examples/mssql/changelog.mssql.sql',
 //   url: '"jdbc:sqlserver://localhost;database=HR_TEST;"',
 //   classpath: 'Drivers/mssql-jdbc-7.4.1.jre8.jar',
 //   username: 'system',
