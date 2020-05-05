@@ -1,5 +1,5 @@
 {
-  "name": "node-liquibase",
+  "name": "liquibase",
   "version": "0.1.0",
   "description": "Node.js wrapper for Liquibase",
   "main": "lib/index.js",
