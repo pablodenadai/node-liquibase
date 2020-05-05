@@ -6,7 +6,7 @@ after_script:
 addons:
   apt:
     packages:
-      - oracle-java8-set-default
+      - oracle-java8-installer
 services:
   - postgresql
 script:
