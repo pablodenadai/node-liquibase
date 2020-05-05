@@ -6,7 +6,8 @@
   "files": ["lib"],
   "scripts": {
     "build": "npm run build:js && npm run copy:dependencies",
-    "build:js": "babel src --out-dir lib --watch",
+    "build:js": "babel src --out-dir lib",
+    "watch:js": "babel src --out-dir lib --watch",
     "copy:dependencies": "npm run copy:liquibase && npm run copy:drivers && npm run copy:change-log-examples",
     "copy:liquibase": "ncp ./src/liquibase-4.0.0 ./lib/liquibase-4.0.0",
     "copy:drivers": "ncp ./src/Drivers ./lib/Drivers",
