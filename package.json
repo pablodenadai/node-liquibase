@@ -1,11 +1,13 @@
 {
-  "name": "node-liquibase",
+  "name": "liquibase",
   "version": "0.1.0",
   "description": "Node.js wrapper for Liquibase",
   "main": "lib/index.js",
+  "files": ["lib"],
   "scripts": {
     "build": "npm run build:js && npm run copy:dependencies",
     "build:js": "babel src --out-dir lib",
+    "watch:js": "babel src --out-dir lib --watch",
     "copy:dependencies": "npm run copy:liquibase && npm run copy:drivers && npm run copy:change-log-examples",
     "copy:liquibase": "ncp ./src/liquibase-4.0.0 ./lib/liquibase-4.0.0",
     "copy:drivers": "ncp ./src/Drivers ./lib/Drivers",

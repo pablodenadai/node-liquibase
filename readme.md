@@ -4,7 +4,7 @@
 ## Install
 
 ```
-$ npm install --save <name>
+$ npm install --save liquibase
 ```
 
 

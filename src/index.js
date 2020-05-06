@@ -6,7 +6,15 @@ const path = require('path');
 class Liquibase {
 	/**
 	 * Returns an instance of a lightweight Liquibase Wrapper.
-	 * @param {*} params default parameters for Liquibase
+	 * @param {Object} params default parameters for Liquibase
+	 * @param {String} params.liquibase - Absolute path to your Liquibase executable.
+	 * @param {String} params.changeLogFile - Absolute path to your Change Log File
+	 * @param {String} params.url - JDBC connection string
+	 * @param {String} params.username - username
+	 * @param {String} params.password - password
+	 * @param {String} params.liquibaseProLicenseKey - Your Liquibase Pro License key
+	 * @param {String} params.classpath - Absolute path to your JDBC driver jar file
+	 *
 	 * @example
 	 * ```javascript
 	 * const liquibase = require('node-liquibase');
@@ -27,16 +35,16 @@ class Liquibase {
 	 */
 	constructor(params = {}) {
 		const defaultParams = {
-			//MSSQL Default Parameters
+			// MSSQL Default Parameters
 			liquibase: path.join(__dirname, './liquibase-4.0.0/liquibase'),
 			changeLogFile: path.join(__dirname, './change-log-examples/mssql/changelog.mssql.sql'),
 			url: '"jdbc:sqlserver://<IP OR HOSTNAME>:<port number>;database=<database name>;"',
 			username: '<username>',
 			password: '<password>',
-			//liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
+			// liquibaseProLicenseKey: '<paste liquibase-pro-license-key here>',
 			classpath: path.join(__dirname, './Drivers/mssql-jdbc-7.4.1.jre8.jar')
 
-			//PostgreSQL Default Parameters Template
+			// PostgreSQL Default Parameters Template
 			// liquibase: 'liquibase-4.0.0/liquibase',
 			// changeLogFile: 'change-log-examples/postgreSQL/changelog.postgresql.sql',
 			// url: 'jdbc:postgresql://<IP OR HOSTNAME>:5432/MYDATABASE_TEST',
@@ -103,4 +111,37 @@ class Liquibase {
 	}
 }
 
-module.exports = (params) => new Liquibase(params);
+/**
+ * Returns an instance of a lightweight Liquibase Wrapper.
+ * @param {Object} params default parameters for Liquibase
+ * @param {String} params.liquibase - Absolute path to your Liquibase executable.
+ * @param {String} params.changeLogFile - Absolute path to your Change Log File
+ * @param {String} params.url - JDBC connection string
+ * @param {String} params.username - username
+ * @param {String} params.password - password
+ * @param {String} params.liquibaseProLicenseKey - Your Liquibase Pro License key
+ * @param {String} params.classpath - Absolute path to your JDBC driver jar file
+ *
+ * @example
+ * ```javascript
+ * const liquibase = require('node-liquibase');
+ *
+ * const config = {
+ *   contexts: 'TEST,DEV',
+ *   labels: 'staging,Jira-1200',
+ *   logLevel: 'debug',
+ *   overwriteOutputFile: 'true',
+ *   logFile: 'myLog.log'
+ * };
+ *
+ * liquibase(config)
+	*   .run('status', '--verbose')
+	*   .then(() => console.log('success'))
+	*   .catch((err) => console.error('fail', err));
+	* ```
+	*/
+	function LiquibaseGenerator(params) {
+		return new Liquibase(params);
+	}
+
+module.exports = LiquibaseGenerator;
