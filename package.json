@@ -1,40 +1,67 @@
 {
   "name": "liquibase",
-  "version": "0.0.3",
-  "description": "Node.js wrap for Liquibase",
-  "license": "MIT",
-  "repository": "pablodenadai/node-liquibase",
-  "author": {
-    "name": "Pablo De Nadai",
-    "email": "pablodenadai@gmail.com",
-    "url": "https://github.com/pablodenadai/node-liquibase"
+  "version": "0.1.0",
+  "description": "Node.js wrapper for Liquibase",
+  "main": "lib/index.js",
+  "files": ["lib"],
+  "scripts": {
+    "build": "npm run build:js && npm run copy:dependencies",
+    "build:js": "babel src --out-dir lib",
+    "watch:js": "babel src --out-dir lib --watch",
+    "copy:dependencies": "npm run copy:liquibase && npm run copy:drivers && npm run copy:change-log-examples",
+    "copy:liquibase": "ncp ./src/liquibase-4.0.0 ./lib/liquibase-4.0.0",
+    "copy:drivers": "ncp ./src/Drivers ./lib/Drivers",
+    "copy:change-log-examples": "ncp ./src/change-log-examples ./lib/change-log-examples",
+    "clean:lib": "rimraf ./lib/**",
+    "start": "npm run build && npm run watch:lib",
+    "watch:lib": "nodemon lib/index.js",
+    "test": "nyc --report-dire=coverage --reporter=lcov ava "
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=6.9.0"
   },
-  "scripts": {
-    "test": "xo && nyc ava --serial"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liquibase/node-liquibase.git"
   },
-  "files": [
-    "index.js"
-  ],
   "keywords": [
     "liquibase",
+    "node",
+    "js",
+    "database",
+    "automation",
+    "source",
+    "control",
     "sql",
     "postgresql",
     "migration"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "ava": "^0.17.0",
-    "coveralls": "^2.11.12",
-    "nyc": "^10.0.0",
-    "xo": "^0.17.0"
+  "author": "liquibase",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liquibase/node-liquibase/issues"
   },
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text"
+  "homepage": "https://github.com/liquibase/node-liquibase#readme",
+  "devDependencies": {
+    "@ava/babel": "^1.0.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "ava": "^3.8.1",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.3",
+    "nyc": "^15.0.1",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {},
+  "ava": {
+    "nodeArguments": [
+      "--experimental-modules"
+    ],
+    "require": [
+      "esm"
     ]
   }
 }
