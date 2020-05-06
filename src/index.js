@@ -14,7 +14,7 @@ class Liquibase {
 	 * @param {String} params.password - password
 	 * @param {String} params.liquibaseProLicenseKey - Your Liquibase Pro License key
 	 * @param {String} params.classpath - Absolute path to your JDBC driver jar file
-	 * 
+	 *
 	 * @example
 	 * ```javascript
 	 * const liquibase = require('node-liquibase');
@@ -111,4 +111,37 @@ class Liquibase {
 	}
 }
 
-module.exports = (params) => new Liquibase(params);
+/**
+ * Returns an instance of a lightweight Liquibase Wrapper.
+ * @param {Object} params default parameters for Liquibase
+ * @param {String} params.liquibase - Absolute path to your Liquibase executable.
+ * @param {String} params.changeLogFile - Absolute path to your Change Log File
+ * @param {String} params.url - JDBC connection string
+ * @param {String} params.username - username
+ * @param {String} params.password - password
+ * @param {String} params.liquibaseProLicenseKey - Your Liquibase Pro License key
+ * @param {String} params.classpath - Absolute path to your JDBC driver jar file
+ *
+ * @example
+ * ```javascript
+ * const liquibase = require('node-liquibase');
+ *
+ * const config = {
+ *   contexts: 'TEST,DEV',
+ *   labels: 'staging,Jira-1200',
+ *   logLevel: 'debug',
+ *   overwriteOutputFile: 'true',
+ *   logFile: 'myLog.log'
+ * };
+ *
+ * liquibase(config)
+	*   .run('status', '--verbose')
+	*   .then(() => console.log('success'))
+	*   .catch((err) => console.error('fail', err));
+	* ```
+	*/
+	function LiquibaseGenerator(params) {
+		return new Liquibase(params);
+	}
+
+module.exports = LiquibaseGenerator;
