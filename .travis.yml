@@ -3,7 +3,6 @@ cache:
   directories:
     - node_modules
 node_js:
-  - '10'
   - '12'
 after_script:
   - bash <(curl -s https://codecov.io/bash)
