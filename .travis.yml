@@ -11,3 +11,10 @@ services:
   - postgresql
 script:
   - npm run test
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - yarn build:lib && npx semantic-release
+  on:
+    branch: master
