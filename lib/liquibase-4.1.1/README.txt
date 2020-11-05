@@ -1,8 +1,8 @@
-Liquibase Version 4.0.0-beta1
+Liquibase Version 4.1.1
 
 Introduction
 --------------------------------------------
-Thanks for downloading and installing Liquibase 4.0.0-beta1 from Datical.
+Thanks for downloading and installing Liquibase 4.1.1 from Datical.
 By using the installer, you already have all the dependencies, directories, config, 
 and properties files to get started exploring the Liquibase examples provided.
 

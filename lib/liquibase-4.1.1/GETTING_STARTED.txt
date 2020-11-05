@@ -1,9 +1,9 @@
-Liquibase Version 4.0.0-beta1
+Liquibase Version 4.1.1
 
 
 Getting Started
 --------------------------------------------
-Thanks for downloading and installing Liquibase 4.0.0-beta1 from Datical.
+Thanks for downloading and installing Liquibase 4.1.1 from Datical.
 
 By using the installer, you already have all the dependencies, directories, config, 
 and properties files to get started exploring the Liquibase examples provided, which 
@@ -140,7 +140,7 @@ as defined by the changelog script.
 The DATABASECHANGELOG and DATABASECHANGELOGLOCK tables are liquibase-metadata tables. 
 Also, the changelog created the COMPANY and PERSON tables.
 
-Now, open the sample.changelog.xml or sample.changelog.sql file in your favorite 
+Now, open the sample.changelog.xml or samplechangelog.h2.sql file in your favorite 
 text editor.
 
 In each file, you can see how changes were defined as a series of changeSets. Each 

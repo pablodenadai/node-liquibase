@@ -1,0 +1,36 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="drop_students" author="MikeO">
+        <ext:runCommand>
+            <ext:command>
+                { drop: "students" }
+            </ext:command>
+        </ext:runCommand>
+    </changeSet>
+    <changeSet id="drop_inventory" author="MarthaB">
+        <ext:runCommand>
+            <ext:command>
+                { drop: "inventory" }
+            </ext:command>
+        </ext:runCommand>
+    </changeSet>
+    <changeSet id="drop_capped_inventory" author="ChristineM">
+      <ext:runCommand>
+          <ext:command>
+              { drop: "capped_inventory" }
+          </ext:command>
+      </ext:runCommand>
+  </changeSet>
+  <changeSet id="drop_car" author="ChristineM">
+    <ext:runCommand>
+        <ext:command>
+            { drop: "car" }
+        </ext:command>
+    </ext:runCommand>
+</changeSet>
+</databaseChangeLog>
